@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football API</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <span class="navbar-brand">OGG</span>
+            <button 
+                class="navbar-toggler border-0" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars""></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto">
+                    <a class="nav-link" aria-current="page" href="https://soyoswaldogg.github.io/oswaldo-gg/" target="_blank">Mi sitio web</a>
+                    <a class="nav-link" href="https://instagram.com/soyoswaldo.gg"  target="_blank">Instagram</a>
+                    <a class="nav-link" href="https://github.com/soyoswaldogg" target="_blank">Github</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-success">
+
+        <div class="container py-3">
+            <label for="pais">Pais</label>
+            <select name="pais" id="pais" class="">
+                <option value="" selected disabled>Selecciona</option>
+                <option value="spain" data-league="140">España</option>
+                <option value="mexico" data-league="262">México</option>
+                <option value="argentina" data-league="128">Argentina</option>
+                <option value="england" data-league="39">Inglaterra</option>
+                <option value="italy" data-league="135">Italia</option>
+                <option value="germany" data-league="78">Alemania</option>
+            </select>
+
+            <label for="equipo">Equipo</label>
+            <select name="equipo" id="equipo">
+                <option value="" selected disabled>Selecciona</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- info club container -->
+    <div class="container-fluid py-3">
+        <div id="team-container" class="container d-none">
+            <div class="row align-items-center">
+                <!-- team icon -->
+                <div class="col-md-12 col-lg-3 text-center">
+                    <img id="team-icon" src="https://media.api-sports.io/football/teams/529.png" alt="">
+                </div>
+
+                <!-- team name -->
+                <div class="col-sm-12 col-lg-5 mt-3">
+                    <div class="row justify-content-center">
+
+                        <p id="team-name" class="col-sm-12 col-lg-10 h1 text-center text-lg-start">Nombre del Equipo</p>
+                        <!-- country icon -->
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <img id="country-icon" src="https://media.api-sports.io/flags/es.svg" alt="" class="w-100">
+                        </div>
+
+                        <!-- country name -->
+                        <div class="row col-12">
+                            <div class="col-12">
+                                <p id="country-name" class="h3 fw-normal text-center text-lg-start">Pais</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- team name -->
+
+                <div class="col-sm-12 col-lg-4 text-center">
+                    <img id="liga-icon" src="https://media.api-sports.io/football/leagues/140.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div> <!-- info club container -->
+
+    <!-- table info -->
+    <main class="w-100 py-2">
+        <div class="container-md mx-auto py-5">
+            <div class="row">
+                <!-- table title -->
+                <div class="col-12 bg-dark">
+                    <p class="h3 text-white text-center">Estadísticas</p>
+                </div><!-- table title -->
+        
+                <!-- table info -->
+                <div class="col-12">
+                    <div id="table-info" class="row">
+                        <div class="column-info-0 column-info-l col-6">Partido jugados: </div>
+                        <div id="PJ" class="column-info-0 col-6 text-center"></div>
+                        <div class="column-info-1 column-info-l col-6">Partidos ganados: </div>
+                        <div id="PG" class="column-info-1 col-6 text-center"></div>
+                        <div class="column-info-0 column-info-l col-6">Partidos perdidos: </div>
+                        <div id="PP" class="column-info-0 col-6 text-center"></div>
+                        <div class="column-info-1 column-info-l col-6">Partido empatados: </div>
+                        <div id="PE" class="column-info-1 col-6 text-center"></div>
+                        <div class="column-info-0 column-info-l col-6">Goles a favor: </div>
+                        <div id="GF" class="column-info-0 col-6 text-center"></div>
+                        <div class="column-info-1 column-info-l col-6">Goles en contra: </div>
+                        <div id="GC" class="column-info-1 col-6 text-center"></div>
+                        <div class="column-info-0 column-info-l col-6">Goles por partido (a favor): </div>
+                        <div id="GPF" class="column-info-0 col-6 text-center"></div>
+                        <div class="column-info-1 column-info-l col-6">Goles por partido (en contra): </div>
+                        <div id="GPC" class="column-info-1 col-6 text-center"></div>
+                        <div class="column-info-0 column-info-l col-6">Porterias imbatidas: </div>
+                        <div id="PI" class="column-info-0 col-6 text-center"></div>
+        
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/edd7419467.js" crossorigin="anonymous"></script>
+    
+    <!-- Scripts -->
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

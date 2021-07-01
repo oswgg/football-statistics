@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,IAAI,AAAA,CACA,WAAW,CAAE,uCAAuC,CACvD,AAED,AAAA,cAAc,AAAA,CACV,gBAAgB,CAAE,IAAI,CACzB,AAED,AAAA,cAAc,AAAC,CACX,YAAY,CAAE,cAAc,CAC/B",
+    "sources": [
+        "../estilo.scss",
+        "../sass/_columnas.scss"
+    ],
+    "names": [],
+    "file": "estilo.css"
+}
